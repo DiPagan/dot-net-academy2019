@@ -1,0 +1,68 @@
+﻿@model Tip4Trip_aka.ViewModels.UserHousesViewModel
+@{
+    ViewBag.Title = "MyTrip";
+}
+
+<h2>My Houses Quickview</h2>
+
+@*<h4>Hello @Model.User.Email</h4>*@
+
+@*@Html.ActionLink("Add new House", "Create", "Houses")*@
+<span>
+    <button class="btn btn-default my-2 my-sm-0 m-1" type="button">
+        <i class="fa fa-drivers-license"></i><a href="@Url.Action("Create", "Houses")"> Add a new house</a>
+    </button>
+</span>
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>House Reference ID</th>
+            <th>House Title</th>
+            <th>House Location</th>
+            <th>House Address</th>
+            <th>Max Occupancy</th>
+            @*<th>Price per Night Charged</th>*@
+            @*<th>House Images</th>*@
+            <th>More Actions</th>
+        </tr>
+    </thead>
+    @foreach (Tip4Trip_aka.Models.House it in Model.Houses)
+    {
+        <tbody>
+            <tr>
+                <td>@it.Id</td>
+                <td>@it.Title</td>
+                <td>@it.Location.NameCity</td>
+                <td>@it.Address</td>
+                <td>@it.MaxOccupancy</td>
+                @*<td>@it.PriceperNight</td>
+                <td>
+                    @foreach (var obje in Model.HouseImages.Where(c => c.housId == it.Id))
+                    {
+                        if (obje.ImagePath != null)
+                        {
+                            string FileName = Path.GetFileNameWithoutExtension(obje.ImagePath);
+
+                            //To Get File Extension
+                            string FileExtension = Path.GetExtension(obje.ImagePath);
+
+                            //Add Current Date To Attached File Name
+                            FileName = FileName.Trim() + FileExtension;
+                            <img src="../../UserImages/@FileName" class="img-thumbnail" alt="An image should be here!" width="100" height="50" />
+
+                        }
+
+                    }
+                </td>*@
+                @*<td>@Html.ActionLink("Detailas", "Details", "Houses", new { id = it.Id }) </td>
+                    <td><a href="@Url.Action("Details", "Houses",new { id = it.Id })"></a></td>*@
+                <td><a href="@Url.Action("Details", "Houses",new { id = it.Id })">Details</a></td>
+
+
+            </tr>
+        </tbody>
+
+
+    }
+</table>
+@Html.ActionLink("Back to MyT4T", "T4T", "Home")

@@ -22,4 +22,4 @@ During this training a real-life project was developed by a 4-member team and it
 
 Use the **Tip4Trip_aka.sln** file in order to open and build the project in Visual Studio
 
-The instructions and the requirements of the project can be found on the project-instruction.md file
+The instructions and the requirements of the project can be found on the [project-instructions.md](project-instructions.md) file
